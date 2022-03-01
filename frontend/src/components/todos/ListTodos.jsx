@@ -24,10 +24,13 @@ const ListTodos = ({ todo, setTodo }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const getIsCompleted = () => {
-    const number = todos.filter((todo.IsCompleted));
-    return number.length;
-  } 
+  const taskCompleted = todos.filter((todo) => {
+    return todo.isComplete == true;
+  })
+
+  const num = taskCompleted.length;
+
+  const inum = todos.length - num;
 
   useEffect(() => {
     dispatch(getTodos());
@@ -38,15 +41,22 @@ const ListTodos = ({ todo, setTodo }) => {
   return (
     <>
       <div className={classes.todosStyle}>
-        <Typography variant = "h5">
+        <Typography variant = "h6">
         {`Total Todos: ${todos.length}`}
-        {`Completed Tasks : ${getIsCompleted}`}
-        {`Incomplete Task : ${todos.length-getIsCompleted}`}
-        
         </Typography>
-        <Typography variant="h5">
-          {" "}
-          {todos.length > 0 ? "theTodos;" : "noTodosYet;"}{" "}
+        <Typography variant = "h6">
+        {`Completed Tasks : ${num}`}
+        </Typography>
+        <Typography variant = "h6">
+        {`Incomplete Task : ${inum}`}
+        {" "}
+        </Typography>
+        
+          
+        <Typography variant="h4">
+        {" "}
+        
+        {todos.length > 0 ? "TheTodos:" : "NoTodosYet:"}{" "}
         </Typography>
         {todos &&
           todos.map((todo) => {

@@ -56,11 +56,11 @@ const Todo = ({ todo, setTodo, todos }) => {
       <div className={classes.todoStyle}>
         <div>
           {todo.isComplete ? (
-            <Typography variant="subtitle1" className={classes.checked}>
-              {todo.name}
+            <Typography variant="subtitle1" >
+              {todo.name}-Done
             </Typography>
           ) : (
-            <Typography variant="subtitle1">{todo.name}</Typography>
+            <Typography variant="subtitle1">{todo.name}-In Progress</Typography>
           )}
           <Typography variant="body2" className={classes.moreStyle}>
             Author: {todo.author}
